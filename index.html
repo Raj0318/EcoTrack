@@ -3,63 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoTrack - Carbon Footprint Tracker</title>
+    <title>EcoTrack - Precise Carbon Footprint Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🌿 EcoTrack</h1>
-            <p>Track your carbon footprint and make a difference for the planet!</p>
+            <h1>🌿 EcoTrack - Comprehensive Carbon Footprint Tracker</h1>
+            <p>Input detailed lifestyle data for an accurate carbon footprint analysis.</p>
         </header>
-
         <main>
             <section class="form-section">
                 <h2>Track Your Carbon Footprint</h2>
                 <form id="footprintForm">
+                    <!-- Transportation -->
+                    <h3>🚗 Transportation</h3>
                     <div class="form-group">
-                        <label for="transport">🚗 Transport Mode:</label>
+                        <label for="transport">Mode:</label>
                         <select id="transport" name="transport" required>
-                            <option value="car">Car</option>
-                            <option value="bike">Bike</option>
+                            <option value="car-petrol">Car (Petrol)</option>
+                            <option value="car-diesel">Car (Diesel)</option>
+                            <option value="car-electric">Car (Electric)</option>
                             <option value="bus">Bus</option>
+                            <option value="train">Train</option>
+                            <option value="plane">Plane</option>
+                            <option value="bike">Bike</option>
                             <option value="walk">Walk</option>
                         </select>
                     </div>
-
                     <div class="form-group">
-                        <label for="meals">🍴 Meals (Per Day):</label>
+                        <label for="distance">Distance Traveled (in km):</label>
+                        <input type="number" id="distance" name="distance" min="0" placeholder="Enter distance" required>
+                    </div>
+                    
+                    <!-- Energy -->
+                    <h3>⚡ Energy Consumption</h3>
+                    <div class="form-group">
+                        <label for="electricity-hours">Electricity Usage (hours):</label>
+                        <input type="number" id="electricity-hours" name="electricity-hours" min="0" placeholder="Hours used daily" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="electricity-source">Electricity Source:</label>
+                        <select id="electricity-source" name="electricity-source" required>
+                            <option value="renewable">Renewable</option>
+                            <option value="non-renewable">Non-Renewable</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Food -->
+                    <h3>🍴 Food Consumption</h3>
+                    <div class="form-group">
+                        <label for="meals">Meal Type:</label>
                         <select id="meals" name="meals" required>
                             <option value="non-veg">Non-Veg</option>
                             <option value="veg">Veg</option>
+                            <option value="vegan">Vegan</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="meal-count">Number of Meals:</label>
-                        <input type="number" id="meal-count" name="meal-count" min="0" placeholder="Enter number of meals" required>
+                        <input type="number" id="meal-count" name="meal-count" min="0" placeholder="Meals per day" required>
                     </div>
-
+                    
+                    <!-- Waste -->
+                    <h3>♻️ Waste Management</h3>
                     <div class="form-group">
-                        <label for="electricity-hours">⚡ Hours of Electricity Usage:</label>
-                        <input type="number" id="electricity-hours" name="electricity-hours" min="0" placeholder="Enter hours" required>
+                        <label for="waste">Daily Waste Generated (in kg):</label>
+                        <input type="number" id="waste" name="waste" min="0" placeholder="Enter waste in kg" required>
                     </div>
-
+                    <div class="form-group">
+                        <label for="recycling">Recycling (Percentage of waste recycled):</label>
+                        <input type="number" id="recycling" name="recycling" min="0" max="100" placeholder="Enter percentage recycled" required>
+                    </div>
+                    
+                    <!-- Water -->
+                    <h3>💧 Water Usage</h3>
+                    <div class="form-group">
+                        <label for="water-usage">Water Usage (liters/day):</label>
+                        <input type="number" id="water-usage" name="water-usage" min="0" placeholder="Enter liters used" required>
+                    </div>
+                    
                     <button type="submit" class="btn-submit">Calculate Footprint</button>
                 </form>
             </section>
-
             <section class="result-section">
                 <h2>💡 Your Carbon Footprint</h2>
                 <div id="result">Enter your details above to calculate your footprint.</div>
             </section>
         </main>
-
         <footer>
             <p>🌍 Together, we can make a difference! | EcoTrack © 2024</p>
         </footer>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
